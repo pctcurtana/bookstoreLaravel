@@ -9,6 +9,7 @@
             <div class="w-full md:w-2/3 lg:w-1/2">
                 <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">Khám phá thế giới sách</h1>
                 <p class="text-xl mb-8 text-white">Hàng nghìn đầu sách chất lượng đang chờ đón bạn</p>
+                
                 @guest
                 <a href="{{ route('register') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg inline-block">
                     Đăng ký ngay

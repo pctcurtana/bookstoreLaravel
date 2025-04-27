@@ -25,6 +25,9 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
 // Trang chủ cho tất cả người dùng
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
+// Search route
+Route::get('/search', [HomeController::class, 'search'])->name('search');
+
 // Image routes
 Route::get('/product-image/{filename}', [ProductController::class, 'image'])->name('product.image');
 

@@ -151,7 +151,7 @@
     <header class="bg-white shadow-md sticky top-0 z-30">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <a href="#top" class="text-2xl font-bold text-blue-600 flex items-center">
+                <a href="{{ route('index') }}" class="text-2xl font-bold text-blue-600 flex items-center">
                     <i class="fa-solid fa-book mr-2 text-blue-500"></i> 
                     <span class="bg-gradient-to-r from-blue-600 to-blue-400 text-transparent bg-clip-text">BookStore</span>
                 </a>
@@ -162,7 +162,7 @@
                 </button>
 
                 <div class="hidden md:flex items-center space-x-1">
-                    <a href="#top" class="nav-link {{ request()->routeIs('index') || request()->routeIs('home') ? 'active' : '' }}">
+                    <a href="{{ route('index') }}" class="nav-link {{ request()->routeIs('index') || request()->routeIs('home') ? 'active' : '' }}">
                         <i class="fas fa-home mr-1"></i> Trang chủ
                     </a>
                     <a href="#product" class="nav-link">
@@ -172,6 +172,22 @@
                         <i class="fas fa-info-circle mr-1"></i> Về chúng tôi
                     </a>
                     
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="hidden md:block flex-grow max-w-md mx-4">
+                    <form action="{{ route('search') }}" method="GET" class="relative">
+                        <input 
+                            type="text" 
+                            name="query" 
+                            placeholder="Tìm sách mà bạn cần" 
+                            class="w-full px-4 py-2 pl-10 pr-8 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            required
+                        >
+                        <button type="submit" class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <i class="fas fa-search text-gray-500"></i>
+                        </button>
+                    </form>
                 </div>
                 
                 <div class="flex items-center space-x-4">
@@ -284,7 +300,7 @@
     <div class="fixed inset-0 z-50 bg-black bg-opacity-50 hidden" id="mobile-menu-overlay">
         <div class="bg-white h-full w-64 p-5 shadow-lg transform transition-transform duration-300 -translate-x-full" id="mobile-menu">
             <div class="flex justify-between items-center mb-6">
-                <a href="#top" class="text-xl font-bold text-blue-600 flex items-center">
+                <a href="{{ route('index') }}" class="text-xl font-bold text-blue-600 flex items-center">
                     <i class="fa-solid fa-book mr-2 text-blue-500"></i> 
                     <span class="bg-gradient-to-r from-blue-600 to-blue-400 text-transparent bg-clip-text">BookStore</span>
                 </a>
@@ -296,7 +312,7 @@
             <nav class="mb-6">
                 <ul class="space-y-4">
                     <li>
-                        <a href="#top" class="mobile-nav-link block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg transition-colors {{ request()->routeIs('index') || request()->routeIs('home') ? 'text-blue-600 bg-blue-50 font-medium' : '' }}">
+                        <a href="{{ route('index') }}" class="mobile-nav-link block text-gray-700 hover:text-blue-600 hover:bg-blue-50 py-3 px-4 rounded-lg transition-colors {{ request()->routeIs('index') || request()->routeIs('home') ? 'text-blue-600 bg-blue-50 font-medium' : '' }}">
                             <i class="fas fa-home mr-2"></i> Trang chủ
                         </a>
                     </li>
@@ -312,6 +328,22 @@
                     </li>
                 </ul>
             </nav>
+            
+            <!-- Mobile Search -->
+            <div class="mb-6 px-4">
+                <form action="{{ route('search') }}" method="GET" class="relative">
+                    <input 
+                        type="text" 
+                        name="query" 
+                        placeholder="Tìm sách mà bạn cần" 
+                        class="w-full px-4 py-3 pl-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        required
+                    >
+                    <button type="submit" class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                        <i class="fas fa-search text-gray-500"></i>
+                    </button>
+                </form>
+            </div>
             
             <div class="border-t pt-4">
                 @auth

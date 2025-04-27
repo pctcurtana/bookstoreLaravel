@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    // Hiển thị chi tiết sản phẩm
+    // Hiển thị chi tiết sản phẩm   
     public function show($id)
     {
         $product = Product::findOrFail($id);

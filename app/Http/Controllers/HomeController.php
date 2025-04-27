@@ -22,4 +22,15 @@ class HomeController extends Controller
     {
         return redirect()->route('index');
     }
+    
+    // Xử lý tìm kiếm sách
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        
+        $products = Product::where('name', 'like', "%{$query}%")
+            ->paginate(12);
+        
+        return view('home.search', compact('products', 'query'));
+    }
 }
